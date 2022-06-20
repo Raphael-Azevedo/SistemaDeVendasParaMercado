@@ -96,3 +96,9 @@ C:\ProjetoMercadinho\obj\Debug\net5.0\Razor\Views\Gestao\Produtos.cshtml.g.cs
 C:\ProjetoMercadinho\obj\Debug\net5.0\Razor\Views\Gestao\EditarCategoria.cshtml.g.cs
 C:\ProjetoMercadinho\obj\Debug\net5.0\Razor\Views\Gestao\EditarFornecedor.cshtml.g.cs
 C:\ProjetoMercadinho\obj\Debug\net5.0\Razor\Views\Gestao\EditarProduto.cshtml.g.cs
+C:\ProjetoMercadinho\obj\Debug\net5.0\Razor\Views\Gestao\NovaPromocao.cshtml.g.cs
+C:\ProjetoMercadinho\obj\Debug\net5.0\Razor\Views\Gestao\Promocoes.cshtml.g.cs
+C:\ProjetoMercadinho\obj\Debug\net5.0\Razor\Views\Gestao\EditarPromocao.cshtml.g.cs
+C:\ProjetoMercadinho\obj\Debug\net5.0\Razor\Views\Gestao\Estoque.cshtml.g.cs
+C:\ProjetoMercadinho\obj\Debug\net5.0\Razor\Views\Gestao\NovoEstoque.cshtml.g.cs
+C:\ProjetoMercadinho\obj\Debug\net5.0\Razor\Views\Gestao\Vendas.cshtml.g.cs

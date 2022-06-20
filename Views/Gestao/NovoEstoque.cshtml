@@ -1,0 +1,16 @@
+@model ProjetoMercadinho.Models.Estoque
+@{
+    Layout = "_LayoutAdmin";
+}
+<h3>Novo Estoque</h3>
+<hr>
+<form class="form-horizontal" asp-controller="Estoque" asp-action="Salvar" method="POST">
+    <label asp-for="Produto">Produto</label>
+    <select class="form-control" asp-for="ProdutoId"
+        asp-items='@(new SelectList(@ViewBag.Produtos,"Id","Nome"))'></select><br>
+
+    <label asp-for="Quantidade">Quantidade</label>
+    <input type="text" asp-for="Quantidade" class="form-control" placeholder="ex: 100"><br>
+
+    <button class="btn btn-success">Cadastrar</button>
+</form>

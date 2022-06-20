@@ -15624,6 +15624,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\ProjetoMercadinho\\Views\\Gestao\\EditarPromocao.cshtml",
+      "TargetPath": "Views\\Gestao\\EditarPromocao.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\ProjetoMercadinho\\Views\\Home\\Privacy.cshtml",
       "TargetPath": "Views\\Home\\Privacy.cshtml",
       "FileKind": "mvc"
@@ -15634,6 +15639,16 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\ProjetoMercadinho\\Views\\Gestao\\Estoque.cshtml",
+      "TargetPath": "Views\\Gestao\\Estoque.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\ProjetoMercadinho\\Views\\Gestao\\Promocoes.cshtml",
+      "TargetPath": "Views\\Gestao\\Promocoes.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\ProjetoMercadinho\\Views\\Home\\Index.cshtml",
       "TargetPath": "Views\\Home\\Index.cshtml",
       "FileKind": "mvc"
@@ -15641,6 +15656,11 @@
     {
       "FilePath": "c:\\ProjetoMercadinho\\Views\\Gestao\\NovoFornecedor.cshtml",
       "TargetPath": "Views\\Gestao\\NovoFornecedor.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\ProjetoMercadinho\\Views\\Gestao\\NovaPromocao.cshtml",
+      "TargetPath": "Views\\Gestao\\NovaPromocao.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -15679,6 +15699,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\ProjetoMercadinho\\Views\\Gestao\\Vendas.cshtml",
+      "TargetPath": "Views\\Gestao\\Vendas.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\ProjetoMercadinho\\Views\\Gestao\\Fornecedores.cshtml",
       "TargetPath": "Views\\Gestao\\Fornecedores.cshtml",
       "FileKind": "mvc"
@@ -15706,6 +15731,11 @@
     {
       "FilePath": "c:\\ProjetoMercadinho\\Views\\Gestao\\EditarProduto.cshtml",
       "TargetPath": "Views\\Gestao\\EditarProduto.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\ProjetoMercadinho\\Views\\Gestao\\NovoEstoque.cshtml",
+      "TargetPath": "Views\\Gestao\\NovoEstoque.cshtml",
       "FileKind": "mvc"
     },
     {

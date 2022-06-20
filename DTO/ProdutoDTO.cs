@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ProjetoMercadinho.DTO
 {
@@ -14,12 +15,14 @@ namespace ProjetoMercadinho.DTO
         public int CategoriaID { get; set; }
         [Required(ErrorMessage = "Fornecedor do produto é obrigatório")]
         public int FornecedorID { get; set; }
+        [Column(TypeName = "decimal(10,2)")]
         [Required(ErrorMessage = "Preço de custo do produto é obrigatório")]
-        public float PrecoDeCusto { get; set; }
+        public decimal PrecoDeCusto { get; set; }
+        [Column(TypeName = "decimal(10,2)")]
         [Required(ErrorMessage = "Preço de venda do produto é obrigatório")]
-        public float PrecoDeVenda { get; set; }
+        public decimal PrecoDeVenda { get; set; }
         [Required(ErrorMessage = "Medição do produto é obrigatória")]
-        [Range(0,2, ErrorMessage ="Medição inválida")]
+        [Range(0, 2, ErrorMessage = "Medição inválida")]
         public int Medicao { get; set; }
     }
 }

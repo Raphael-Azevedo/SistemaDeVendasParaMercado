@@ -3,6 +3,12 @@
     Layout = "_LayoutAdmin";
 }
 <h3>Novo Produto</h3>
+<script>
+    $(document).ready(() => {
+        $('#precoDeCust').maskNumber({ decimal: ',', thousands: '' });
+        $('#precoDeVend').maskNumber({ decimal: ',', thousands: '' });
+    });
+</script>
 <hr>
 <form class="form-horizontal" asp-controller="Produtos" asp-action="Salvar" method="POST">
     <input type="hidden" asp-for="Id" value="0">
@@ -20,11 +26,11 @@
         asp-items='@(new SelectList(@ViewBag.Fornecedores,"Id","Nome"))'></select><br>
 
     <label asp-for="PrecoDeCusto">Preço de Custo</label>
-    <input class="form-control" asp-for="PrecoDeCusto" type="number" step="any" placeholder="10.99">
+    <input class="form-control" id="precoDeCust" asp-for="PrecoDeCusto" placeholder="ex: 10.99">
     <span asp-validation-for="PrecoDeCusto" class="text-danger"></span><br>
 
     <label asp-for="PrecoDeVenda">Preço de Venda</label>
-    <input class="form-control" asp-for="PrecoDeVenda" type="number" step="any" placeholder="20.99">
+    <input class="form-control" id="precoDeVend" asp-for="PrecoDeVenda"  placeholder="ex: 20.99">
     <span asp-validation-for="PrecoDeVenda" class="text-danger"></span><br>
 
     <label asp-for="Medicao">Unida de Medida</label>

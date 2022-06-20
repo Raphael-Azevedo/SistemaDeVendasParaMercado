@@ -236,7 +236,7 @@ namespace ProjetoMercadinho.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<int?>("ProdutoId")
+                    b.Property<int>("ProdutoId")
                         .HasColumnType("int");
 
                     b.Property<float>("Quantidade")
@@ -290,11 +290,13 @@ namespace ProjetoMercadinho.Migrations
                     b.Property<string>("Nome")
                         .HasColumnType("longtext");
 
-                    b.Property<float>("PrecoDeCusto")
-                        .HasColumnType("float");
+                    b.Property<decimal>("PrecoDeCusto")
+                        .HasPrecision(10, 2)
+                        .HasColumnType("decimal(10,2)");
 
-                    b.Property<float>("PrecoDeVenda")
-                        .HasColumnType("float");
+                    b.Property<decimal>("PrecoDeVenda")
+                        .HasPrecision(10, 2)
+                        .HasColumnType("decimal(10,2)");
 
                     b.Property<bool>("Status")
                         .HasColumnType("tinyint(1)");
@@ -345,12 +347,20 @@ namespace ProjetoMercadinho.Migrations
                     b.Property<int?>("ProdutoId")
                         .HasColumnType("int");
 
+                    b.Property<float>("Quantidade")
+                        .HasColumnType("float");
+
                     b.Property<float>("ValorDaVenda")
                         .HasColumnType("float");
+
+                    b.Property<int?>("VendaId")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
                     b.HasIndex("ProdutoId");
+
+                    b.HasIndex("VendaId");
 
                     b.ToTable("Saidas");
                 });
@@ -433,7 +443,9 @@ namespace ProjetoMercadinho.Migrations
                 {
                     b.HasOne("ProjetoMercadinho.Models.Produto", "Produto")
                         .WithMany()
-                        .HasForeignKey("ProdutoId");
+                        .HasForeignKey("ProdutoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Produto");
                 });
@@ -468,7 +480,13 @@ namespace ProjetoMercadinho.Migrations
                         .WithMany()
                         .HasForeignKey("ProdutoId");
 
+                    b.HasOne("ProjetoMercadinho.Models.Venda", "Venda")
+                        .WithMany()
+                        .HasForeignKey("VendaId");
+
                     b.Navigation("Produto");
+
+                    b.Navigation("Venda");
                 });
 #pragma warning restore 612, 618
         }

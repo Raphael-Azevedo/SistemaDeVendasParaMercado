@@ -86,5 +86,53 @@ namespace ProjetoMercadinho.Controllers
             ViewBag.Fornecedores = _context.Fornecedores.ToList();
             return View(produtoView);
         }
+        public IActionResult Promocoes()
+        {
+            var promocoes = _context.Promocoes.Include(p => p.Produto)
+                                         .Where(promo => promo.Status == true)
+                                         .ToList();
+            return View(promocoes);
+        }
+        public IActionResult NovaPromocao()
+        {
+            ViewBag.Produtos = _context.Produtos.ToList();
+            return View("/Views/Gestao/NovaPromocao.cshtml");
+        }
+        public IActionResult EditarPromocao(int id)
+        {
+            var promocao = _context.Promocoes.Include(p => p.Produto)
+                                             .FirstOrDefault(prod => prod.Id == id);
+            PromocaoDTO PromocaoView = new PromocaoDTO();
+            PromocaoView.Id = promocao.Id;
+            PromocaoView.Nome = promocao.Nome;
+            PromocaoView.ProdutoID = promocao.Produto.Id;
+            PromocaoView.Porcentagem = promocao.Porcentagem;
+            ViewBag.Produtos = _context.Produtos.ToList();
+            return View(PromocaoView);
+        }
+        public IActionResult Estoque()
+        {
+            var listaDeEstoque = _context.Estoques.Include(p => p.Produto).ToList();
+            return View(listaDeEstoque);
+        }
+        public IActionResult NovoEstoque()
+        {
+            ViewBag.Produtos = _context.Produtos.ToList();
+            return View();
+        }
+        public IActionResult EditarEstoque()
+        {
+            return Content("");
+        }
+        public IActionResult Vendas()
+        {
+            var listDeVendas = _context.Vendas.ToList();
+            return View(listDeVendas);
+        }
+        [HttpPost]
+        public IActionResult RelatorioDeVendas()
+        {
+            return Ok(_context.Vendas.ToList());
+        }
     }
 }

@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using ProjetoMercadinho.Context;
 using ProjetoMercadinho.DTO;
@@ -66,7 +67,7 @@ namespace ProjetoMercadinho.Controllers
                 return View("/Views/Gestao/EditarProduto.cshtml");
             }
         }
-                [HttpPost]
+        [HttpPost]
         public IActionResult Deletar(int id)
         {
             if (id > 0)
@@ -76,6 +77,51 @@ namespace ProjetoMercadinho.Controllers
                 _context.SaveChanges();
             }
             return RedirectToAction("Produtos", "Gestao");
+        }
+        [HttpPost]
+        public IActionResult Produto(int id)
+        {
+            if (id > 0)
+            {
+                var produto = _context.Produtos.Where(p => p.Status == true)
+                                               .Include(p => p.Categoria)
+                                               .Include(p => p.Fornecedor)
+                                               .FirstOrDefault(p => p.Id == id);
+                if(produto != null){
+                    var estoque = _context.Estoques.First(e => e.ProdutoId == produto.Id);
+                    if(produto == null){
+                        produto = null;
+                    }
+                }
+                if (produto != null)
+                {
+                    Promocao promocao;
+                    try
+                    {
+                         promocao = _context.Promocoes.First(p => p.Produto.Id == produto.Id && p.Status == true);
+                    }
+                    catch (Exception)
+                    {
+                        promocao = null;
+                    }
+                    if(promocao != null)
+                    {
+                        produto.PrecoDeVenda -= (produto.PrecoDeVenda*(decimal)(promocao.Porcentagem/100));
+                    }
+                    Response.StatusCode = 200;
+                    return Json(produto);
+                }
+                else
+                {
+                    Response.StatusCode = 404;
+                    return Json(null);
+                }
+            }
+            else
+            {
+                Response.StatusCode = 404;
+                return Json(null);
+            }
         }
     }
 }
